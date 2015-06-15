@@ -11,7 +11,7 @@ public:
 	
 	static float randomWave(float value, float wave = GOLDE_RATIO_Y);
 	static float randomBewteen(float valueMin, float valueMax);
-	static float randomPitchUpon(vector<int> values, vector<int> probabilityDistribution);
+	static int randomPitchUpon(vector<float> probabilityDistribution);
 public:
 	static float GOLDE_RATIO_X;
 	static float GOLDE_RATIO_Y;

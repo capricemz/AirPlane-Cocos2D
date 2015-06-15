@@ -16,8 +16,8 @@ bool LayerBullet::init()
 	{
 		CC_BREAK_IF(!Layer::init());
 		auto texture = Director::getInstance()->getTextureCache()->getTextureForKey("ui/shoot.png");
-		spriteBatchNodeBullet = SpriteBatchNode::createWithTexture(texture);//bulletBatchNode为CCSpriteBatchNode类型成员变量
-		addChild(spriteBatchNodeBullet);
+		_spriteBatchNodeBullet = SpriteBatchNode::createWithTexture(texture);//bulletBatchNode为CCSpriteBatchNode类型成员变量
+		addChild(_spriteBatchNodeBullet);
 
 		isInit = true;
 	} while (0);
@@ -27,8 +27,8 @@ bool LayerBullet::init()
 void LayerBullet::bulletAdd(float dt)
 {
 	auto bullet = Sprite::createWithSpriteFrameName("bullet1.png");
-	spriteBatchNodeBullet->addChild(bullet);//这里子弹要添加到bulletBatchNode中
-	vecBullet.pushBack(bullet);
+	_spriteBatchNodeBullet->addChild(bullet);//这里子弹要添加到bulletBatchNode中
+	_vecBullet.pushBack(bullet);
 
 	auto plane = LayerPlane::getInstance()->getChildByTag(AIRPLANE);
 	auto positionPlane = plane->getPosition();
@@ -48,10 +48,11 @@ void LayerBullet::bulletRemove(Sprite *bullet)
 {
 	if (bullet != NULL)
 	{
-		vecBullet.erase(vecBullet.find(bullet));
-		spriteBatchNodeBullet->removeChild(bullet,true);
+		_vecBullet.erase(_vecBullet.find(bullet));
+		_spriteBatchNodeBullet->removeChild(bullet,true);
 	}
 }
+
 void LayerBullet::bulletMoveOut(Node *node)
 {
 	bulletRemove((Sprite *)node);

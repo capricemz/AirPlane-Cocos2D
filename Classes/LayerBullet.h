@@ -16,13 +16,13 @@ public:
 
 	void bulletAdd(float dt);
 	void bulletRemove(Sprite *bullet);
-	void bulletMoveOut(Node *pSender);
+	void bulletMoveOut(Node *node);
 
 	void shootStart(float delay = 0.0f);
 	void shootStop();
 
 private:
-	Vector<Sprite*> vecBullet;
-	SpriteBatchNode *spriteBatchNodeBullet;
+	Vector<Sprite*> _vecBullet;
+	SpriteBatchNode *_spriteBatchNodeBullet;
 };
 

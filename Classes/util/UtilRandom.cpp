@@ -35,18 +35,12 @@ float UtilRandom::randomBewteen( float valueMin, float valueMax )
 	return valueMin + (valueMax - valueMin) * random();
 }
 /*
-根据probabilityDistribution数组中的概率分布在values数组中获得随机值
-@param values
+根据probabilityDistribution数组中的概率分布获得随机值
 @param probabilityDistribution
 @return 随机值
 */
-float UtilRandom::randomPitchUpon( vector<int> values, vector<int> probabilityDistribution )
+int UtilRandom::randomPitchUpon( vector<float> probabilityDistribution )
 {
-	if(values.size() != probabilityDistribution.size())
-	{
-		//throw new Error("数据长度不等");
-		return NULL;
-	}
 	int i,l = probabilityDistribution.size();
 	for (i=0;i<l;i++) 
 	{
@@ -67,7 +61,7 @@ float UtilRandom::randomPitchUpon( vector<int> values, vector<int> probabilityDi
 			break;
 		}
 	}
-	return values[i];
+	return i;
 }
 /*
 生成[0,1)之间的浮点随机数

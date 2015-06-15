@@ -4,20 +4,26 @@
 
 USING_NS_CC;
 
+enum TypeEnemy
+{
+	SMALL,
+	MEDIUM,
+	LARGE
+};
+
 class Enemy : public Sprite
 {
 public:
 	Enemy(void);
 	~Enemy(void);
 
-	CREATE_FUNC(Enemy);
+	static Enemy *create(TypeEnemy value);
+	virtual bool init(TypeEnemy value);
 
+	TypeEnemy typeGet();
 	int hpGet();
-	void hpSet(int value);
-	void hpLose(int value = 1);
-
-	void postionRandomSet();
-public:
-	int hp;
+private:
+	TypeEnemy _type;
+	int _hp;
 };
 

@@ -1,15 +1,16 @@
 #pragma once
 
 #include "cocos2d.h"
+#include "Enemy.h"
 
 USING_NS_CC;
 
-enum EnumEnemy
+/*
+struct StructEnemy
 {
-	SMALL,
-	MEDIUM,
-	LARGE,
-}; 
+	int id;
+	int hp;
+};*/
 
 class LayerEnemy : public Layer
 {
@@ -23,6 +24,8 @@ public:
 
 	void enemyAdd(float dt);
 	void enemyRemove(Sprite *enemy);
-	void enemyMoveOut(Node *pSender);
+	void enemyMoveOut(Node *node);
+private:
+	TypeEnemy typeEnemyGet();
 };
 
