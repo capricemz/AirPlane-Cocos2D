@@ -27,5 +27,7 @@ public:
 	void enemyMoveOut(Node *node);
 private:
 	TypeEnemy typeEnemyGet();
+private:
+
 };
 

@@ -1,4 +1,5 @@
 #include "SceneGame.h"
+#include "tests\TestSpriteBtachNode.h"
 
 SceneGame::SceneGame(void)
 {
@@ -18,6 +19,9 @@ bool SceneGame::init()
 		_layerGame = LayerGame::create();//在这里获取GameLayer实例
 		CC_BREAK_IF(!_layerGame);
 		addChild(_layerGame);//add _gameLayer到场景中
+
+		auto test = TestSpriteBtachNode::create();
+		addChild(test);
 
 		isInit = true;
 	} while (0);

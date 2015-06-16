@@ -143,6 +143,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SceneGame.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\LayerPlane.cpp" />
+    <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp" />
     <ClCompile Include="..\Classes\util\UtilRandom.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -155,6 +156,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\SceneGame.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\LayerPlane.h" />
+    <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h" />
     <ClInclude Include="..\Classes\util\UtilRandom.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

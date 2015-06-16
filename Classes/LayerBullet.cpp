@@ -27,7 +27,8 @@ bool LayerBullet::init()
 void LayerBullet::bulletAdd(float dt)
 {
 	auto bullet = Sprite::createWithSpriteFrameName("bullet1.png");
-	_spriteBatchNodeBullet->addChild(bullet);//这里子弹要添加到bulletBatchNode中
+	//_spriteBatchNodeBullet->addChild(bullet);//这里子弹要添加到bulletBatchNode中
+	addChild(bullet);
 	_vecBullet.pushBack(bullet);
 
 	auto plane = LayerPlane::getInstance()->getChildByTag(AIRPLANE);
@@ -49,7 +50,8 @@ void LayerBullet::bulletRemove(Sprite *bullet)
 	if (bullet != NULL)
 	{
 		_vecBullet.erase(_vecBullet.find(bullet));
-		_spriteBatchNodeBullet->removeChild(bullet,true);
+		//_spriteBatchNodeBullet->removeChild(bullet,true);
+		removeChild(bullet);
 	}
 }
 
@@ -60,7 +62,7 @@ void LayerBullet::bulletMoveOut(Node *node)
 
 void LayerBullet::shootStart(float delay)
 {
-	schedule(schedule_selector(LayerBullet::bulletAdd),0.2f,kRepeatForever,delay);
+	schedule(schedule_selector(LayerBullet::bulletAdd),0.01f,kRepeatForever,delay);
 }
 
 void LayerBullet::shootStop()

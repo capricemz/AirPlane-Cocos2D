@@ -56,4 +56,6 @@ _ReSharper*/
 *.exe
 *.out
 *.app
+
 proj.win32/testproject.sdf
+proj.win32/testproject.opensdf

@@ -61,6 +61,22 @@ bool Enemy::init(TypeEnemy value)
 	return isInit;
 }
 
+void Enemy::actionSet( const std::function<void(Node*)> &func )
+{
+	auto sizeEnemy = getContentSize();
+	auto sizeWin = Director::getInstance()->getWinSize();
+	auto xActual = UtilRandom::randomBewteen(sizeEnemy.width/2,sizeWin.width - sizeEnemy.width/2);//Ëæ»ú³õÊ¼Î»ÖÃ
+	setPosition(xActual,sizeWin.height + sizeEnemy.height/2);
+
+	float durationActual = 3;
+	auto actionMoveBy = MoveBy::create(durationActual,Size(0,sizeWin.height + sizeEnemy.height));
+	auto actionDone = CallFuncN::create(func);
+
+	auto sequence = Sequence::create(actionMoveBy,actionDone,NULL);
+
+	runAction(sequence);
+}
+
 TypeEnemy Enemy::typeGet()
 {
 	return _type;

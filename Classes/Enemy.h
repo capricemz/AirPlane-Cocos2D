@@ -19,6 +19,7 @@ public:
 
 	static Enemy *create(TypeEnemy value);
 	virtual bool init(TypeEnemy value);
+	void actionSet(const std::function<void(Node*)> &func);
 
 	TypeEnemy typeGet();
 	int hpGet();

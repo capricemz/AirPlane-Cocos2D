@@ -13,6 +13,9 @@
     <Filter Include="src\uitl">
       <UniqueIdentifier>{4cf31592-30a9-40aa-ab1a-3d8541257d24}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\tests">
+      <UniqueIdentifier>{380adbbc-7f22-4311-967b-5f9310186e43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +48,7 @@
     <ClCompile Include="..\Classes\util\UtilRandom.cpp">
       <Filter>src\uitl</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -77,6 +81,7 @@
     <ClInclude Include="..\Classes\util\UtilRandom.h">
       <Filter>src\uitl</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

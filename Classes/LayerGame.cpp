@@ -43,13 +43,13 @@ bool LayerGame::init()
 		schedule(schedule_selector(LayerGame::backgroundMove),0.01f);
 
 		//加入bulletLayer
-		layerBullet = LayerBullet::create();
-		addChild(layerBullet);
-		layerBullet->shootStart();
-
+		/*layerBullet = LayerBullet::create();
+		addChild(layerBullet);*/
+		
 		//加入planeLayer
-		layerPlane = LayerPlane::getInstance();
+		/*layerPlane = LayerPlane::getInstance();
 		addChild(layerPlane);
+		layerBullet->shootStart();*/
 
 		isInit = true;
 	} while (0);

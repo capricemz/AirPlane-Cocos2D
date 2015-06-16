@@ -26,20 +26,7 @@ void LayerEnemy::enemyAdd( float dt )
 {
 	auto type = typeEnemyGet();
 	auto enemy = Enemy::create(type);
-
-
-	auto sizeEnemy = enemy->getContentSize();
-	auto sizeWin = Director::getInstance()->getWinSize();
-	auto xActual = UtilRandom::randomBewteen(sizeEnemy.width/2,sizeWin.width - sizeEnemy.width/2);//Ëæ»ú³õÊ¼Î»ÖÃ
-	enemy->setPosition(xActual,sizeWin.height + sizeEnemy.height/2);
-
-	float durationActual = 3;
-	auto actionMoveBy = MoveBy::create(durationActual,Size(0,sizeWin.height + sizeEnemy.height));
-	auto actionDone = CallFuncN::create(CC_CALLBACK_1(LayerEnemy::enemyMoveOut,this));
-
-	auto sequence = Sequence::create(actionMoveBy,actionDone,NULL);
-
-	enemy->runAction(sequence);
+	enemy->actionSet(CC_CALLBACK_1(LayerEnemy::enemyMoveOut,this));
 }
 
 void LayerEnemy::enemyRemove( Sprite *enemy )
