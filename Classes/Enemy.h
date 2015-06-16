@@ -17,14 +17,23 @@ public:
 	Enemy(void);
 	~Enemy(void);
 
-	static Enemy *create(TypeEnemy value);
-	virtual bool init(TypeEnemy value);
-	void actionSet(const std::function<void(Node*)> &func);
+	/*static Enemy *create(TypeEnemy value, const std::function<void()> &func);
+	virtual bool init(TypeEnemy value, const std::function<void()> &func);*/
+	static Enemy *create(TypeEnemy value, CallFuncN *actionRemove4Vec);
+	virtual bool init(TypeEnemy value, CallFuncN *actionRemove4Vec);
 
 	TypeEnemy typeGet();
-	int hpGet();
+	const int hpGet();
+	void hpLose();
+
+	void blowup();
+private:
+	void remove4Par();
 private:
 	TypeEnemy _type;
 	int _hp;
+	float _duration;
+	/*std::function<void()> _funcRemove4Vec;*/
+	CallFuncN *_actionRemove4Vec;
 };
 

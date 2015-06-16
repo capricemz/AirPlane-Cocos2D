@@ -22,12 +22,15 @@ public:
 
 	virtual bool init();
 
+	Vector<Enemy *> vecEnemyGet();
+
 	void enemyAdd(float dt);
-	void enemyRemove(Sprite *enemy);
-	void enemyMoveOut(Node *node);
+	void enemyRemove(Node *enemy);
+	void enemyRemoveAll();
+
 private:
 	TypeEnemy typeEnemyGet();
 private:
-
+	Vector<Enemy *> _vecEmemy;
 };
 

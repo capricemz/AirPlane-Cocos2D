@@ -14,15 +14,16 @@ public:
 
 	virtual bool init();
 
+	Vector<Sprite *> vecBulletGet();
+	
 	void bulletAdd(float dt);
 	void bulletRemove(Sprite *bullet);
 	void bulletMoveOut(Node *node);
 
 	void shootStart(float delay = 0.0f);
 	void shootStop();
-
+	
 private:
-	Vector<Sprite*> _vecBullet;
-	SpriteBatchNode *_spriteBatchNodeBullet;
+	Vector<Sprite *> _vecBullet;
 };
 

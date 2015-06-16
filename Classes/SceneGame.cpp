@@ -20,9 +20,6 @@ bool SceneGame::init()
 		CC_BREAK_IF(!_layerGame);
 		addChild(_layerGame);//add _gameLayerµ½³¡¾°ÖÐ
 
-		auto test = TestSpriteBtachNode::create();
-		addChild(test);
-
 		isInit = true;
 	} while (0);
 	return isInit;

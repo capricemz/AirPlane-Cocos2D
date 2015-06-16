@@ -15,19 +15,20 @@ bool LayerBullet::init()
 	do
 	{
 		CC_BREAK_IF(!Layer::init());
-		auto texture = Director::getInstance()->getTextureCache()->getTextureForKey("ui/shoot.png");
-		_spriteBatchNodeBullet = SpriteBatchNode::createWithTexture(texture);//bulletBatchNode为CCSpriteBatchNode类型成员变量
-		addChild(_spriteBatchNodeBullet);
 
 		isInit = true;
 	} while (0);
 	return isInit;
 }
 
+Vector<Sprite *> LayerBullet::vecBulletGet()
+{
+	return _vecBullet;
+}
+
 void LayerBullet::bulletAdd(float dt)
 {
 	auto bullet = Sprite::createWithSpriteFrameName("bullet1.png");
-	//_spriteBatchNodeBullet->addChild(bullet);//这里子弹要添加到bulletBatchNode中
 	addChild(bullet);
 	_vecBullet.pushBack(bullet);
 
@@ -40,7 +41,7 @@ void LayerBullet::bulletAdd(float dt)
 	Value duration(distance.asFloat()/velocity.asFloat());
 	auto actionMoveBy = MoveBy::create(duration.asFloat(),Size(0,distance.asFloat()));
 	auto actionDone = CallFuncN::create(CC_CALLBACK_1(LayerBullet::bulletMoveOut,this));
-	auto sequence = Sequence::create(actionMoveBy,actionDone,NULL);
+	auto sequence = Sequence::create(actionMoveBy,actionDone,nullptr);
 
 	bullet->runAction(sequence);
 }
@@ -50,7 +51,6 @@ void LayerBullet::bulletRemove(Sprite *bullet)
 	if (bullet != NULL)
 	{
 		_vecBullet.erase(_vecBullet.find(bullet));
-		//_spriteBatchNodeBullet->removeChild(bullet,true);
 		removeChild(bullet);
 	}
 }
@@ -62,7 +62,7 @@ void LayerBullet::bulletMoveOut(Node *node)
 
 void LayerBullet::shootStart(float delay)
 {
-	schedule(schedule_selector(LayerBullet::bulletAdd),0.01f,kRepeatForever,delay);
+	schedule(schedule_selector(LayerBullet::bulletAdd),0.2f,kRepeatForever,delay);
 }
 
 void LayerBullet::shootStop()

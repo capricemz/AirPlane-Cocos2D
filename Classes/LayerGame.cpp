@@ -2,6 +2,7 @@
 #include "ui/CocosGUI.h"
 #include "LayerGame.h"
 #include "LayerBullet.h"
+#include "Enemy.h"
 
 USING_NS_CC;
 
@@ -42,18 +43,72 @@ bool LayerGame::init()
 
 		schedule(schedule_selector(LayerGame::backgroundMove),0.01f);
 
-		//加入bulletLayer
-		/*layerBullet = LayerBullet::create();
-		addChild(layerBullet);*/
-		
-		//加入planeLayer
-		/*layerPlane = LayerPlane::getInstance();
+		scheduleUpdate();
+
+		//加入layerPlane
+		layerPlane = LayerPlane::getInstance();
 		addChild(layerPlane);
-		layerBullet->shootStart();*/
+
+		//加入layerBullet
+		layerBullet = LayerBullet::create();
+		addChild(layerBullet);
+		layerBullet->shootStart();
+
+		//加入layerEnemy
+		layerEnemy = LayerEnemy::create();
+		addChild(layerEnemy);
 
 		isInit = true;
 	} while (0);
 	return isInit;
+}
+
+void LayerGame::backgroundMove(float dt)
+{
+	background1->setPositionY(background1->getPositionY() - 2);
+	background2->setPositionY(background1->getPositionY() + background1->getContentSize().height - 2);
+	if(background2->getPositionY() <= 0)//要注意因为背景图高度是842，所以每次减去2最后可以到达0，假如背景高度是841，那么这个条件永远达不到，滚动失败
+	{
+		background1->setPositionY(0);
+	}
+}
+
+void LayerGame::update( float delta )
+{
+	Vector<Sprite *> vecBullet2Del;//创建一个Vector<Sprite *>，用以存放待删除的子弹，也就是此帧中被检测到碰撞的子弹
+	Vector<Enemy *> vecEnemy2Del;//创建一个Vector<Enemy *>，用以存放待删除的敌机
+	for (auto bullet : layerBullet->vecBulletGet())//遍历所有子弹
+	{
+		for (auto enemy : layerEnemy->vecEnemyGet())//遍历所有敌机
+		{
+			auto rectEnemy = enemy->getBoundingBox();
+			auto rectBullet = bullet->getBoundingBox();
+			auto isIntersects = rectEnemy.intersectsRect(rectBullet);
+			if (isIntersects)
+			{
+				auto hpEnemy = enemy->hpGet();
+				if (hpEnemy >= 1)//如果hp>=1,移除bullet
+				{
+					enemy->hpLose();
+					vecBullet2Del.pushBack(bullet);//把待删除子弹放入Vector<Sprite *>
+				}
+				if (hpEnemy == 1)//如果life==1,移除enemy3
+				{
+					vecEnemy2Del.pushBack(enemy);//把待删除敌机放入Vector<Enemy *>，也就是此子弹击中的敌机
+				}
+			}
+		}
+		for (auto enemy2Del : vecEnemy2Del)//遍历所有此帧中碰撞死亡的敌机
+		{
+			enemy2Del->blowup();//执行爆炸
+		}
+		vecEnemy2Del.clear();
+	}
+	for (auto bullet2Del : vecBullet2Del)//遍历所有此帧中碰撞的子弹
+	{
+		layerBullet->bulletRemove(bullet2Del);//执行移除
+	}
+	vecBullet2Del.clear();
 }
 
 void LayerGame::eventAdd()
@@ -102,14 +157,4 @@ void LayerGame::onTouchMoved( Touch *touch, Event *event )
 void LayerGame::eventRemove()
 {
 	Director::getInstance()->getEventDispatcher()->removeEventListener(eventListener);
-}
-
-void LayerGame::backgroundMove(float dt)
-{
-	background1->setPositionY(background1->getPositionY() - 2);
-	background2->setPositionY(background1->getPositionY() + background1->getContentSize().height - 2);
-	if(background2->getPositionY() <= 0)//要注意因为背景图高度是842，所以每次减去2最后可以到达0，假如背景高度是841，那么这个条件永远达不到，滚动失败
-	{
-		background1->setPositionY(0);
-	}
 }

@@ -48,7 +48,9 @@
     <ClCompile Include="..\Classes\util\UtilRandom.cpp">
       <Filter>src\uitl</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp" />
+    <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp">
+      <Filter>src\tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -81,7 +83,9 @@
     <ClInclude Include="..\Classes\util\UtilRandom.h">
       <Filter>src\uitl</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h" />
+    <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h">
+      <Filter>src\tests</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

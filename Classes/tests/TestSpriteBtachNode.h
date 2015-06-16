@@ -1,3 +1,6 @@
+/*
+SpriteBtachNode已不推荐使用
+*/
 #pragma once
 
 #include "cocos2d.h"

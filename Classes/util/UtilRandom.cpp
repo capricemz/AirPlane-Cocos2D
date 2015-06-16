@@ -1,7 +1,10 @@
+#include <iostream>
 #include "UtilRandom.h"
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
+
+using namespace std;
 
 float UtilRandom::GOLDE_RATIO_X = (sqrt(5.0) - 1) * 0.5f;
 float UtilRandom::GOLDE_RATIO_Y = (3 - sqrt(5.0)) * 0.5f;
@@ -22,7 +25,8 @@ UtilRandom::~UtilRandom(void)
 */
 float UtilRandom::randomWave( float value, float wave )
 {
-	return value * (1 - wave + 2 * wave * random());
+	auto r = random();
+	return value * (1 - wave + 2 * wave * r);
 }
 /*
 在valueMin值至valueMax值之间获得随机值
@@ -32,7 +36,8 @@ float UtilRandom::randomWave( float value, float wave )
 */
 float UtilRandom::randomBewteen( float valueMin, float valueMax )
 {
-	return valueMin + (valueMax - valueMin) * random();
+	auto r = random();
+	return valueMin + (valueMax - valueMin) * r;
 }
 /*
 根据probabilityDistribution数组中的概率分布获得随机值
@@ -56,7 +61,8 @@ int UtilRandom::randomPitchUpon( vector<float> probabilityDistribution )
 	}
 	for (i=0;i<l;i++) 
 	{
-		if(random() < probabilityDistribution[i])
+		auto r = random();
+		if(r < probabilityDistribution[i])
 		{
 			break;
 		}
@@ -68,6 +74,5 @@ int UtilRandom::randomPitchUpon( vector<float> probabilityDistribution )
 */
 float UtilRandom::random()
 {
-	srand( (unsigned)time( NULL ) );
 	return rand()/double(RAND_MAX);
 }

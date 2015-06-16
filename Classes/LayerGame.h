@@ -3,6 +3,7 @@
 #include "cocos2d.h"
 #include "LayerPlane.h"
 #include "LayerBullet.h"
+#include "LayerEnemy.h"
 
 USING_NS_CC;
 
@@ -12,17 +13,17 @@ public:
 	LayerGame(void);
 	~LayerGame(void);
 
-    virtual bool init();
-
-	virtual bool onTouchBegan(Touch *touch, Event *event);
-	virtual void onTouchMoved(Touch *touch, Event *event);
-
 	CREATE_FUNC(LayerGame);
+    virtual bool init();
 
 	void LayerGame::backgroundMove(float dt);
 
+	void update(float delta) override;
+
 private:
 	void LayerGame::eventAdd();
+	virtual bool onTouchBegan(Touch *touch, Event *event);
+	virtual void onTouchMoved(Touch *touch, Event *event);
 	void LayerGame::eventRemove();
 
 private:
@@ -33,4 +34,5 @@ private:
 
 	LayerPlane *layerPlane;
 	LayerBullet *layerBullet;
+	LayerEnemy *layerEnemy;
 };
