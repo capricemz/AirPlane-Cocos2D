@@ -39,22 +39,25 @@
     <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp">
       <Filter>src\tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LayerBullet.cpp">
+    <ClCompile Include="..\Classes\layer\Enemy.cpp">
       <Filter>src\layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LayerEnemy.cpp">
+    <ClCompile Include="..\Classes\layer\LayerBullet.cpp">
       <Filter>src\layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LayerGame.cpp">
+    <ClCompile Include="..\Classes\layer\LayerEnemy.cpp">
       <Filter>src\layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LayerPlane.cpp">
+    <ClCompile Include="..\Classes\layer\LayerGame.cpp">
       <Filter>src\layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Enemy.cpp">
+    <ClCompile Include="..\Classes\layer\LayerPlane.cpp">
       <Filter>src\layer</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\layer\LayerUFO.cpp">
+      <Filter>src\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\layer\UFO.cpp">
       <Filter>src\layer</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,22 +80,25 @@
     <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h">
       <Filter>src\tests</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\LayerBullet.h">
+    <ClInclude Include="..\Classes\layer\Enemy.h">
       <Filter>src\layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\LayerEnemy.h">
+    <ClInclude Include="..\Classes\layer\LayerBullet.h">
       <Filter>src\layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\LayerGame.h">
+    <ClInclude Include="..\Classes\layer\LayerEnemy.h">
       <Filter>src\layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\LayerPlane.h">
+    <ClInclude Include="..\Classes\layer\LayerGame.h">
       <Filter>src\layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Enemy.h">
+    <ClInclude Include="..\Classes\layer\LayerPlane.h">
       <Filter>src\layer</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\layer\LayerUFO.h">
+      <Filter>src\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\layer\UFO.h">
       <Filter>src\layer</Filter>
     </ClInclude>
   </ItemGroup>

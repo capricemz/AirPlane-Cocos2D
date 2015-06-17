@@ -1,5 +1,4 @@
 #include "SceneGame.h"
-#include "tests\TestSpriteBtachNode.h"
 
 SceneGame::SceneGame(void)
 {

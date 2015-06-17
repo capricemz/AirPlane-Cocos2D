@@ -1,9 +1,10 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "LayerPlane.h"
-#include "LayerBullet.h"
-#include "LayerEnemy.h"
+#include "layer\LayerUFO.h"
+#include "layer\LayerEnemy.h"
+#include "layer\LayerBullet.h"
+#include "layer\LayerPlane.h"
 
 USING_NS_CC;
 
@@ -26,13 +27,16 @@ private:
 	virtual void onTouchMoved(Touch *touch, Event *event);
 	void LayerGame::eventRemove();
 
+	void updateCollisionBulletEnemy();
+	void updateCollisionUFOPlane();
 private:
-	EventListenerTouchOneByOne *eventListener;
+	EventListenerTouchOneByOne *_eventListener;
 
-	Sprite *background1;
-	Sprite *background2;
+	Sprite *_background1;
+	Sprite *_background2;
 
-	LayerPlane *layerPlane;
-	LayerBullet *layerBullet;
-	LayerEnemy *layerEnemy;
+	LayerPlane *_layerPlane;
+	LayerBullet *_layerBullet;
+	LayerEnemy *_layerEnemy;
+	LayerUFO *_layerUFO;
 };

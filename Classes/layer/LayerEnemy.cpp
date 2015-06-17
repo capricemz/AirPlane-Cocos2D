@@ -1,5 +1,5 @@
-#include "LayerEnemy.h"
-#include "Enemy.h"
+#include "layer\Enemy.h"
+#include "layer\LayerEnemy.h"
 #include "util\UtilRandom.h"
 
 LayerEnemy::LayerEnemy(void)
@@ -17,7 +17,7 @@ bool LayerEnemy::init()
 	{
 		CC_BREAK_IF(!Layer::init());
 
-		schedule(schedule_selector(LayerEnemy::enemyAdd),0.5f);
+		schedule(schedule_selector(LayerEnemy::enemyAdd),1.0f);
 
 		isInit = true;
 	} while (0);
@@ -29,10 +29,10 @@ Vector<Enemy *> LayerEnemy::vecEnemyGet()
 	return _vecEmemy;
 }
 
-void LayerEnemy::enemyAdd( float dt )
+void LayerEnemy::enemyAdd( float delte )
 {
 	auto type = typeEnemyGet();
-	Enemy *enemy = Enemy::create(type, CallFuncN::create(CC_CALLBACK_1(LayerEnemy::enemyRemove,this)));
+	Enemy *enemy = Enemy::create(type, CallFuncN::create(CC_CALLBACK_1(LayerEnemy::enemyRemove4Vec,this)));
 	addChild(enemy);
 	_vecEmemy.pushBack(enemy);
 }
@@ -51,7 +51,7 @@ TypeEnemy LayerEnemy::typeEnemyGet()
 	return values[randomPitchUpon];
 }
 
-void LayerEnemy::enemyRemove( Node *enemy )
+void LayerEnemy::enemyRemove4Vec( Node *enemy )
 {
 	if (enemy != NULL)
 	{
@@ -59,10 +59,12 @@ void LayerEnemy::enemyRemove( Node *enemy )
 	}
 }
 
-void LayerEnemy::enemyRemoveAll()
+void LayerEnemy::enemyBlowupAll()
 {
-	for (auto enemy : _vecEmemy)
+	int i = _vecEmemy.size() - 1;
+	for (; i >= 0 ; i--)
 	{
+		auto enemy = _vecEmemy.at(i);
 		if (enemy->hpGet() > 0)
 		{
 			enemy->blowup();

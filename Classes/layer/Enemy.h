@@ -17,8 +17,6 @@ public:
 	Enemy(void);
 	~Enemy(void);
 
-	/*static Enemy *create(TypeEnemy value, const std::function<void()> &func);
-	virtual bool init(TypeEnemy value, const std::function<void()> &func);*/
 	static Enemy *create(TypeEnemy value, CallFuncN *actionRemove4Vec);
 	virtual bool init(TypeEnemy value, CallFuncN *actionRemove4Vec);
 
@@ -33,7 +31,6 @@ private:
 	TypeEnemy _type;
 	int _hp;
 	float _duration;
-	/*std::function<void()> _funcRemove4Vec;*/
 	CallFuncN *_actionRemove4Vec;
 };
 

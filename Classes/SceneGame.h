@@ -1,7 +1,7 @@
 #pragma once
 
-#include "cocos2d.h"  
-#include "LayerGame.h"
+#include "cocos2d.h"
+#include "layer\LayerGame.h"
 
 class SceneGame : public Scene
 {

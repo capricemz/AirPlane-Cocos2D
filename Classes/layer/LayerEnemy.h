@@ -1,7 +1,7 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "Enemy.h"
+#include "layer\Enemy.h"
 
 USING_NS_CC;
 
@@ -24,9 +24,9 @@ public:
 
 	Vector<Enemy *> vecEnemyGet();
 
-	void enemyAdd(float dt);
-	void enemyRemove(Node *enemy);
-	void enemyRemoveAll();
+	void enemyAdd(float delte);
+	void enemyRemove4Vec(Node *enemy);
+	void enemyBlowupAll();
 
 private:
 	TypeEnemy typeEnemyGet();

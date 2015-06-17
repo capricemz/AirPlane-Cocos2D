@@ -1,7 +1,5 @@
-#include "Enemy.h"
-#include "LayerEnemy.h"
+#include "layer\Enemy.h"
 #include "util\UtilRandom.h"
-#include <iostream>
 
 using namespace std;
 
@@ -13,7 +11,6 @@ Enemy::~Enemy(void)
 {
 }
 
-/*Enemy *Enemy::create( TypeEnemy value, const std::function<void()> &func)*/
 Enemy *Enemy::create( TypeEnemy value, CallFuncN *actionRemove4Vec)
 {
 	Enemy *enemy = new Enemy(); 
@@ -30,7 +27,6 @@ Enemy *Enemy::create( TypeEnemy value, CallFuncN *actionRemove4Vec)
 	}
 }
 
-/*bool Enemy::init(TypeEnemy value, const std::function<void()> &func)*/
 bool Enemy::init(TypeEnemy value, CallFuncN *actionRemove4Vec)
 {
 	auto isInit = false;
@@ -71,7 +67,6 @@ bool Enemy::init(TypeEnemy value, CallFuncN *actionRemove4Vec)
 		setPosition(xActual,sizeWin.height + sizeEnemy.height/2);
 
 		auto actionMoveBy = MoveBy::create(_duration,Size(0,-(sizeWin.height + sizeEnemy.height)));
-		/*auto actionRemove4Vec = CallFunc::create(_funcRemove4Vec);*/
 		auto actionRemove4Par = CallFunc::create(CC_CALLBACK_0(Enemy::remove4Par,this));
 
 		auto sequence = Sequence::create(actionMoveBy,_actionRemove4Vec,actionRemove4Par,NULL);
