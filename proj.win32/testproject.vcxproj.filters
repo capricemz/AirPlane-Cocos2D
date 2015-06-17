@@ -16,6 +16,9 @@
     <Filter Include="src\tests">
       <UniqueIdentifier>{380adbbc-7f22-4311-967b-5f9310186e43}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\layer">
+      <UniqueIdentifier>{ada5245a-68d5-45a0-bd51-2c49aa76a61c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,22 +30,7 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Enemy.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\SceneGame.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\LayerGame.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\LayerPlane.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\LayerBullet.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\LayerEnemy.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\util\UtilRandom.cpp">
@@ -50,6 +38,24 @@
     </ClCompile>
     <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp">
       <Filter>src\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LayerBullet.cpp">
+      <Filter>src\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LayerEnemy.cpp">
+      <Filter>src\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LayerGame.cpp">
+      <Filter>src\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LayerPlane.cpp">
+      <Filter>src\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Enemy.cpp">
+      <Filter>src\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\layer\LayerUFO.cpp">
+      <Filter>src\layer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,22 +68,7 @@
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Enemy.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\SceneGame.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LayerGame.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LayerPlane.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LayerBullet.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LayerEnemy.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\util\UtilRandom.h">
@@ -85,6 +76,24 @@
     </ClInclude>
     <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h">
       <Filter>src\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LayerBullet.h">
+      <Filter>src\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LayerEnemy.h">
+      <Filter>src\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LayerGame.h">
+      <Filter>src\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LayerPlane.h">
+      <Filter>src\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Enemy.h">
+      <Filter>src\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\layer\LayerUFO.h">
+      <Filter>src\layer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
