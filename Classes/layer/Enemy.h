@@ -21,8 +21,11 @@ public:
 	virtual bool init(TypeEnemy value, CallFuncN *actionRemove4Vec);
 
 	TypeEnemy typeGet();
+
 	const int hpGet();
 	void hpLose();
+
+	const int scoreGet();
 
 	void blowup();
 private:
@@ -30,6 +33,7 @@ private:
 private:
 	TypeEnemy _type;
 	int _hp;
+	int _score;
 	float _duration;
 	CallFuncN *_actionRemove4Vec;
 };

@@ -2,18 +2,6 @@
 
 USING_NS_CC;
 
-static LayerPlane *instance;
-
-LayerPlane *LayerPlane::getInstance()
-{
-	do 
-	{
-		CC_BREAK_IF(instance != NULL);
-		instance = LayerPlane::create();
-	} while (0);
-	return instance;
-}
-
 LayerPlane::LayerPlane(void)
 {
 	isAlive = true;

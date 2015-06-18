@@ -2,9 +2,13 @@
 #include "util\UtilRandom.h"
 #include "layer\UFO.h"
 
+const float INTERNAL = 3.0f/*10.0f*/;
+const float PROBABILITY_DOUBEL_BULLET = 0.0f/*0.8f*/;
+const float PROBABILITY_BOOM = 1.0f/*0.2f*/;
+
 LayerUFO::LayerUFO(void)
 {
-	_timeNextAdd = UtilRandom::randomWave(10.0);
+	_timeNextAdd = UtilRandom::randomWave(INTERNAL);
 }
 
 LayerUFO::~LayerUFO(void)
@@ -36,7 +40,7 @@ void LayerUFO::ufoAdd( float delte )
 
 	if(_timeNow > _timeNextAdd)
 	{
-		_timeNextAdd = _timeNow + UtilRandom::randomWave(10.0);
+		_timeNextAdd = _timeNow + UtilRandom::randomWave(INTERNAL);
 
 		auto type = typeUFOGet();
 		UFO *ufo = UFO::create(type, CallFuncN::create(CC_CALLBACK_1(LayerUFO::ufoRemove4Vec,this)));
@@ -51,8 +55,8 @@ TypeUFO LayerUFO::typeUFOGet()
 	values.push_back(TypeUFO::DOUBEL_BULLET);
 	values.push_back(TypeUFO::BOOM);
 	vector<float> probabilityDistribution;
-	probabilityDistribution.push_back(0.65f);
-	probabilityDistribution.push_back(0.35f);
+	probabilityDistribution.push_back(PROBABILITY_DOUBEL_BULLET);
+	probabilityDistribution.push_back(PROBABILITY_BOOM);
 	auto randomPitchUpon = UtilRandom::randomPitchUpon(probabilityDistribution);
 	return values[randomPitchUpon];
 }
@@ -61,6 +65,10 @@ void LayerUFO::ufoRemove4Vec( Node *ufo )
 {
 	if (ufo != NULL)
 	{
-		_vecUFO.erase(_vecUFO.find((UFO *)ufo));
+		auto find = _vecUFO.find((UFO *)ufo);
+		if (_vecUFO.end() != find)
+		{
+			_vecUFO.erase(find);
+		}
 	}
 }

@@ -60,6 +60,9 @@
     <ClCompile Include="..\Classes\layer\UFO.cpp">
       <Filter>src\layer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\layer\LayerUI.cpp">
+      <Filter>src\layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -99,6 +102,9 @@
       <Filter>src\layer</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\layer\UFO.h">
+      <Filter>src\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\layer\LayerUI.h">
       <Filter>src\layer</Filter>
     </ClInclude>
   </ItemGroup>

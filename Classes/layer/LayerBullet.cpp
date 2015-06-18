@@ -1,5 +1,5 @@
 #include "layer\LayerBullet.h"
-#include "layer\LayerPlane.h"
+#include "layer\LayerGame.h"
 
 LayerBullet::LayerBullet(void)
 {
@@ -45,7 +45,7 @@ void LayerBullet::createBulletSingle()
 	addChild(bullet);
 	_vecBullet.pushBack(bullet);
 
-	auto plane = LayerPlane::getInstance()->getChildByTag(AIRPLANE);
+	auto plane = LayerGame::getInstance()->layerPlaneGet()->getChildByTag(AIRPLANE);
 	auto positionPlane = plane->getPosition();
 	bullet->setPosition(Point(positionPlane.x,positionPlane.y + plane->getContentSize().height/2));
 
@@ -68,8 +68,7 @@ void LayerBullet::createBulletDouble()
 	_vecBullet.pushBack(bulletLeft);
 	_vecBullet.pushBack(bulletRight);
 
-	auto plane = LayerPlane::getInstance()->getChildByTag(AIRPLANE);
-	auto positionPlane = plane->getPosition();
+	auto positionPlane = LayerGame::getInstance()->layerPlaneGet()->getChildByTag(AIRPLANE)->getPosition();
 	bulletLeft->setPosition(Point(positionPlane.x - 33, positionPlane.y + 35));
 	bulletRight->setPosition(Point(positionPlane.x + 33, positionPlane.y + 35));
 
@@ -93,7 +92,11 @@ void LayerBullet::bulletRemove(Node *bullet)
 {
 	if (bullet != NULL)
 	{
-		_vecBullet.erase(_vecBullet.find((Sprite *)bullet));
+		auto find = _vecBullet.find((Sprite *)bullet);
+		if (_vecBullet.end() != find)
+		{
+			_vecBullet.erase(find);
+		}
 		if (bullet->getParent())
 		{
 			removeChild(bullet,true);
@@ -113,5 +116,5 @@ void LayerBullet::shootStop()
 
 void LayerBullet::useBulletDouble()
 {
-	_timeOverDoubleBullet = _timeNow + 5.0f;
+	_timeOverDoubleBullet = _timeNow + 10.0f;
 }

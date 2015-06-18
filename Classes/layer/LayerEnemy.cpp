@@ -55,7 +55,11 @@ void LayerEnemy::enemyRemove4Vec( Node *enemy )
 {
 	if (enemy != NULL)
 	{
-		_vecEmemy.erase(_vecEmemy.find((Enemy *)enemy));
+		auto find = _vecEmemy.find((Enemy *)enemy);
+		if (_vecEmemy.end() != find)
+		{
+			_vecEmemy.erase(find);
+		}
 	}
 }
 

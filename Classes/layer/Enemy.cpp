@@ -40,21 +40,25 @@ bool Enemy::init(TypeEnemy value, CallFuncN *actionRemove4Vec)
 		case TypeEnemy::SMALL:
 			spriteFrameName = "enemy1.png";
 			_hp = 1;
-			_duration = 2.0f;
+			_score = 1000;
+			_duration = 1.0f;
 			break;
 		case TypeEnemy::MEDIUM:
 			spriteFrameName = "enemy2.png";
 			_hp = 3;
+			_score = 3000;
 			_duration = 3.0f;
 			break;
 		case TypeEnemy::LARGE:
 			spriteFrameName = "enemy3_n1.png";
 			_hp = 10;
-			_duration = 4.0f;
+			_score = 10000;
+			_duration = 9.0f;
 			break;
 		default:
 			spriteFrameName = "enemy1.png";
 			_hp = 1;
+			_score = 1000;
 			_duration = 2.0f;
 			break;
 		}
@@ -103,6 +107,11 @@ const int Enemy::hpGet()
 void Enemy::hpLose()
 {
 	_hp--;
+}
+
+const int Enemy::scoreGet()
+{
+	return _score;
 }
 
 void Enemy::blowup()

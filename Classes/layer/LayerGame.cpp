@@ -4,10 +4,17 @@
 
 USING_NS_CC;
 
+LayerGame* LayerGame::_instance = nullptr;//静态成员变量的定义
+LayerGame::CGarbo LayerGame::_garbo;//内嵌类静态成员变量的定义
+
 LayerGame::LayerGame(void)
 {
+	_layerBullet = nullptr;
+	_layerEnemy = nullptr;
+	_layerPlane = nullptr;
+	_layerUFO = nullptr;
+	_layerUI = nullptr;
 }
-
 
 LayerGame::~LayerGame(void)
 {
@@ -44,7 +51,7 @@ bool LayerGame::init()
 		scheduleUpdate();
 
 		//加入layerPlane
-		_layerPlane = LayerPlane::getInstance();
+		_layerPlane = LayerPlane::create();
 		addChild(_layerPlane);
 
 		//加入layerBullet
@@ -59,6 +66,10 @@ bool LayerGame::init()
 		//加入layerUFO
 		_layerUFO = LayerUFO::create();
 		addChild(_layerUFO);
+
+		//加入layerUI
+		_layerUI = LayerUI::create();
+		addChild(_layerUI);
 
 		isInit = true;
 	} while (0);
@@ -141,7 +152,7 @@ void LayerGame::updateCollisionUFOPlane()
 			}
 			else if (ufo->typeGet() == TypeUFO::BOOM)
 			{
-				_layerEnemy->enemyBlowupAll();
+				_layerUI->countBoomAdd();
 			}
 			vecUFO2Del.pushBack(ufo);
 		}
@@ -199,4 +210,14 @@ void LayerGame::onTouchMoved( Touch *touch, Event *event )
 void LayerGame::eventRemove()
 {
 	Director::getInstance()->getEventDispatcher()->removeEventListener(_eventListener);
+}
+
+LayerPlane * LayerGame::layerPlaneGet()
+{
+	return _layerPlane;
+}
+
+LayerEnemy * LayerGame::layerEnemyGet()
+{
+	return _layerEnemy;
 }

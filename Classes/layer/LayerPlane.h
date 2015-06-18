@@ -9,8 +9,7 @@ const int AIRPLANE = 747;
 class LayerPlane : public Layer
 {
 public:
-	static LayerPlane *getInstance();//提供getInstance全局指针
-
+	LayerPlane(void);
 	~LayerPlane(void);
 
 	CREATE_FUNC(LayerPlane);
@@ -22,7 +21,5 @@ public:
 public:
 	bool isAlive;
 
-private:
-	LayerPlane(void);
 };
 
