@@ -5,6 +5,8 @@
 USING_NS_CC;
 
 const int MAX_BOOM_COUNT = 100000;
+const int TAG_MENU_BOOM = 1;
+const int TAG_LABEL_COUNT_BOOM = 2;
 
 class LayerUI : public Layer
 {
@@ -23,9 +25,6 @@ private:
 	void menuCallBackBoom();
 
 private:
-	Menu *_menuBoom;
-	Label *_labelCountBoom;
-
 	int _countBoom;
 	int _score;
 };

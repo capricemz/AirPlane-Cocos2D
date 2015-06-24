@@ -15,6 +15,4 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(SceneGame);
 
-private:
-	LayerGame *_layerGame;//°ÑGameLayer±©Â¶¸øGameScene  
 };

@@ -1,8 +1,8 @@
 #include "SceneGame.h"
+#include "layer\ManagetLayer.h"
 
 SceneGame::SceneGame(void)
 {
-	_layerGame = nullptr;
 }
 
 SceneGame::~SceneGame(void)
@@ -15,9 +15,7 @@ bool SceneGame::init()
 	do
 	{
 		CC_BREAK_IF(!Scene::init());
-		_layerGame = LayerGame::getInstance();//在这里获取GameLayer实例
-		CC_BREAK_IF(!_layerGame);
-		addChild(_layerGame);//add _gameLayer到场景中
+		ManagetLayer::getInstance()->initLayer(this);
 
 		isInit = true;
 	} while (0);

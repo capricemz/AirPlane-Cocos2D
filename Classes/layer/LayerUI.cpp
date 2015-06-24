@@ -1,12 +1,11 @@
-#include "layer\LayerUI.h"
-#include "layer\LayerGame.h"
+#include "layer/LayerUI.h"
+#include "layer/LayerGame.h"
+#include "layer/ManagetLayer.h"
 
+using namespace std;
 
 LayerUI::LayerUI(void)
 {
-	_menuBoom = nullptr;
-	_labelCountBoom = nullptr;
-
 	_countBoom = 0;
 	_score = 0;
 }
@@ -14,8 +13,6 @@ LayerUI::LayerUI(void)
 
 LayerUI::~LayerUI(void)
 {
-	_menuBoom = nullptr;
-	_labelCountBoom = nullptr;
 }
 
 bool LayerUI::init()
@@ -38,46 +35,42 @@ void LayerUI::countBoomAdd()
 
 void LayerUI::updateBoomCount()
 {
-	auto boomNormal = Sprite::createWithSpriteFrameName("bomb.png");
-	auto boomPressed = Sprite::createWithSpriteFrameName("bomb.png");
 	if (_countBoom > 0)
 	{
-		if (!_menuBoom)
+		if (!getChildByTag(TAG_MENU_BOOM))
 		{
+			auto boomNormal = Sprite::createWithSpriteFrameName("bomb.png");
+			auto boomPressed = Sprite::createWithSpriteFrameName("bomb.png");
 			auto menuItemSpriteBoom = MenuItemSprite::create(boomNormal,boomPressed,nullptr,CC_CALLBACK_0(LayerUI::menuCallBackBoom,this));
 			menuItemSpriteBoom->setPosition(Point(boomNormal->getContentSize().width/2 + 10, boomNormal->getContentSize().height/2 + 10));
-			_menuBoom = Menu::create(menuItemSpriteBoom,nullptr);
-			_menuBoom->setPosition(Point::ZERO);
+			auto menuBoom = Menu::create(menuItemSpriteBoom,nullptr);
+			menuBoom->setPosition(Point::ZERO);
+			addChild(menuBoom, 0, TAG_MENU_BOOM);
 		}
-		if (!_menuBoom->getParent())
+		if (!getChildByTag(TAG_LABEL_COUNT_BOOM))
 		{
-			addChild(_menuBoom);
+			auto boomNormal = Sprite::createWithSpriteFrameName("bomb.png");
+			auto labelCountBoom = Label::createWithBMFont("font/font.fnt","");
+			labelCountBoom->setColor(Color3B(143, 146, 147));
+			labelCountBoom->setAnchorPoint(Point::ANCHOR_MIDDLE_LEFT);
+			labelCountBoom->setPosition(Point(boomNormal->getContentSize().width + 15, boomNormal->getContentSize().height/2 + 5));
+			addChild(labelCountBoom, 0, TAG_LABEL_COUNT_BOOM);
 		}
-		if (!_labelCountBoom)
-		{
-			_labelCountBoom = Label::createWithBMFont("font/font.fnt","");
-			_labelCountBoom->setColor(Color3B(143, 146, 147));
-			_labelCountBoom->setAnchorPoint(Point::ANCHOR_MIDDLE_LEFT);
-			_labelCountBoom->setPosition(Point(boomNormal->getContentSize().width + 15, boomNormal->getContentSize().height/2 + 5));
-		}
-		if (!_labelCountBoom->getParent())
-		{
-			addChild(_labelCountBoom);
-		}
-		auto text = __String::createWithFormat("x%d",_countBoom);
-		_labelCountBoom->setString(text->getCString());
+		stringstream countBoom;
+		countBoom << _countBoom;
+		string text = "X" + countBoom.str();
+		auto labelCountBoom = (Label *)getChildByTag(TAG_LABEL_COUNT_BOOM);
+		labelCountBoom->setString(text);
 	}
 	else
 	{
-		if (_menuBoom->getParent())
+		if (getChildByTag(TAG_MENU_BOOM))
 		{
-			removeChild(_menuBoom,true);
-			_menuBoom = nullptr;
+			removeChildByTag(TAG_MENU_BOOM,true);
 		}
-		if (_labelCountBoom->getParent())
+		if (getChildByTag(TAG_LABEL_COUNT_BOOM))
 		{
-			removeChild(_labelCountBoom,true);
-			_labelCountBoom = nullptr;
+			removeChildByTag(TAG_LABEL_COUNT_BOOM,true);
 		}
 	}
 }
@@ -88,6 +81,7 @@ void LayerUI::menuCallBackBoom()
 	{
 		_countBoom--;//Õ¨µ¯Êý-1
 		updateBoomCount();
-		LayerGame::getInstance()->layerEnemyGet()->enemyBlowupAll();
+		/*LayerGame::getInstance()->layerEnemyGet()->enemyBlowupAll();*/
+		ManagetLayer::getInstance()->layerEnemyGet()->enemyBlowupAll();
 	}
 }

@@ -1,5 +1,6 @@
-#include "layer\LayerBullet.h"
-#include "layer\LayerGame.h"
+#include "layer/ManagetLayer.h"
+#include "layer/LayerBullet.h"
+#include "layer/LayerGame.h"
 
 LayerBullet::LayerBullet(void)
 {
@@ -45,7 +46,7 @@ void LayerBullet::createBulletSingle()
 	addChild(bullet);
 	_vecBullet.pushBack(bullet);
 
-	auto plane = LayerGame::getInstance()->layerPlaneGet()->getChildByTag(AIRPLANE);
+	auto plane = ManagetLayer::getInstance()->layerPlaneGet()->getChildByTag(AIRPLANE);
 	auto positionPlane = plane->getPosition();
 	bullet->setPosition(Point(positionPlane.x,positionPlane.y + plane->getContentSize().height/2));
 
@@ -68,7 +69,7 @@ void LayerBullet::createBulletDouble()
 	_vecBullet.pushBack(bulletLeft);
 	_vecBullet.pushBack(bulletRight);
 
-	auto positionPlane = LayerGame::getInstance()->layerPlaneGet()->getChildByTag(AIRPLANE)->getPosition();
+	auto positionPlane = ManagetLayer::getInstance()->layerPlaneGet()->getChildByTag(AIRPLANE)->getPosition();
 	bulletLeft->setPosition(Point(positionPlane.x - 33, positionPlane.y + 35));
 	bulletRight->setPosition(Point(positionPlane.x + 33, positionPlane.y + 35));
 

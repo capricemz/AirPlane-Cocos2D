@@ -1,19 +1,12 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "layer/LayerGame.h"
+#include "layer/ManagetLayer.h"
 
 USING_NS_CC;
 
-LayerGame* LayerGame::_instance = nullptr;//静态成员变量的定义
-LayerGame::CGarbo LayerGame::_garbo;//内嵌类静态成员变量的定义
-
 LayerGame::LayerGame(void)
 {
-	_layerBullet = nullptr;
-	_layerEnemy = nullptr;
-	_layerPlane = nullptr;
-	_layerUFO = nullptr;
-	_layerUI = nullptr;
 }
 
 LayerGame::~LayerGame(void)
@@ -50,27 +43,6 @@ bool LayerGame::init()
 
 		scheduleUpdate();
 
-		//加入layerPlane
-		_layerPlane = LayerPlane::create();
-		addChild(_layerPlane);
-
-		//加入layerBullet
-		_layerBullet = LayerBullet::create();
-		addChild(_layerBullet);
-		_layerBullet->shootStart();
-
-		//加入layerEnemy
-		_layerEnemy = LayerEnemy::create();
-		addChild(_layerEnemy);
-
-		//加入layerUFO
-		_layerUFO = LayerUFO::create();
-		addChild(_layerUFO);
-
-		//加入layerUI
-		_layerUI = LayerUI::create();
-		addChild(_layerUI);
-
 		isInit = true;
 	} while (0);
 	return isInit;
@@ -98,9 +70,11 @@ void LayerGame::updateCollisionBulletEnemy()
 	Vector<Enemy *> vecEnemy2Del;//创建一个Vector<Enemy *>，用以存放待删除的敌机
 	Sprite *bullet;
 	Enemy *enemy;
-	for each (bullet in _layerBullet->vecBulletGet())//遍历所有子弹
+	auto layerBullet = ManagetLayer::getInstance()->layerBulletGet();
+	for each (bullet in layerBullet->vecBulletGet())//遍历所有子弹
 	{
-		for each (enemy in _layerEnemy->vecEnemyGet())//遍历所有敌机
+		auto vecEnemy = ManagetLayer::getInstance()->layerEnemyGet()->vecEnemyGet();
+		for each (enemy in vecEnemy)//遍历所有敌机
 		{
 			auto rectEnemy = enemy->getBoundingBox();
 			auto rectBullet = bullet->getBoundingBox();
@@ -130,7 +104,7 @@ void LayerGame::updateCollisionBulletEnemy()
 	}
 	for each (bullet in vecBullet2Del)//遍历所有此帧中碰撞的子弹
 	{
-		_layerBullet->bulletRemove(bullet);//执行移除
+		layerBullet->bulletRemove(bullet);//执行移除
 	}
 	vecBullet2Del.clear();
 }
@@ -139,20 +113,21 @@ void LayerGame::updateCollisionUFOPlane()
 {
 	Vector<UFO *> vecUFO2Del;//创建一个Vector<UFO *>，用以存放待删除的UFO，也就是此帧中被检测到碰撞的UFO
 	UFO *ufo;
-	for each (ufo in _layerUFO->vecUFOGet())
+	auto vecUFO = ManagetLayer::getInstance()->layerUFOGet()->vecUFOGet();
+	for each (ufo in vecUFO)
 	{
 		auto rectUFO = ufo->getBoundingBox();
-		auto rectPlane = _layerPlane->getChildByTag(AIRPLANE)->getBoundingBox();
+		auto rectPlane = ManagetLayer::getInstance()->layerPlaneGet()->getChildByTag(AIRPLANE)->getBoundingBox();
 		auto isIntersects = rectUFO.intersectsRect(rectPlane);
 		if (isIntersects)
 		{
 			if (ufo->typeGet() == TypeUFO::DOUBEL_BULLET)
 			{
-				_layerBullet->useBulletDouble();
+				ManagetLayer::getInstance()->layerBulletGet()->useBulletDouble();
 			}
 			else if (ufo->typeGet() == TypeUFO::BOOM)
 			{
-				_layerUI->countBoomAdd();
+				ManagetLayer::getInstance()->layerUIGet()->countBoomAdd();
 			}
 			vecUFO2Del.pushBack(ufo);
 		}
@@ -174,10 +149,11 @@ void LayerGame::eventAdd()
 
 bool LayerGame::onTouchBegan( Touch *touch, Event* event )
 {
-	if(_layerPlane->isAlive)//isAlive是AirPlane的一个成员属性，表示飞机是否还活着
+	auto layerPlane = ManagetLayer::getInstance()->layerPlaneGet();
+	if(layerPlane->isAlive)//isAlive是AirPlane的一个成员属性，表示飞机是否还活着
 	{
 		//juggle the area of drag
-		auto rectPlane = _layerPlane->getChildByTag(AIRPLANE)->getBoundingBox();
+		auto rectPlane = layerPlane->getChildByTag(AIRPLANE)->getBoundingBox();
 		rectPlane.origin.x -= 15;
 		rectPlane.origin.y -= 15;
 		rectPlane.size.width += 30;
@@ -192,7 +168,8 @@ bool LayerGame::onTouchBegan( Touch *touch, Event* event )
 
 void LayerGame::onTouchMoved( Touch *touch, Event *event )
 {
-	if(_layerPlane->isAlive)//isAlive是AirPlane的一个成员属性，表示飞机是否还活着
+	auto layerPlane = ManagetLayer::getInstance()->layerPlaneGet();
+	if(layerPlane->isAlive)//isAlive是AirPlane的一个成员属性，表示飞机是否还活着
 	{
 		auto pointBegin = touch->getLocationInView();
 		pointBegin = Director::getInstance()->convertToGL(pointBegin);//获取触摸坐标
@@ -201,23 +178,13 @@ void LayerGame::onTouchMoved( Touch *touch, Event *event )
 		pointEnd = Director::getInstance()->convertToGL(pointEnd);
 
 		auto offset = pointBegin - pointEnd;//获取offset
-		auto pointTo = _layerPlane->getChildByTag(AIRPLANE)->getPosition() + offset;//获取真正移动位置
+		auto pointTo = layerPlane->getChildByTag(AIRPLANE)->getPosition() + offset;//获取真正移动位置
 
-		_layerPlane->moveTo(pointTo);//移动飞机
+		layerPlane->moveTo(pointTo);//移动飞机
 	}
 }
 
 void LayerGame::eventRemove()
 {
 	Director::getInstance()->getEventDispatcher()->removeEventListener(_eventListener);
-}
-
-LayerPlane * LayerGame::layerPlaneGet()
-{
-	return _layerPlane;
-}
-
-LayerEnemy * LayerGame::layerEnemyGet()
-{
-	return _layerEnemy;
 }

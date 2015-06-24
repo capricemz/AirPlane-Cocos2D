@@ -2,9 +2,9 @@
 #include "util\UtilRandom.h"
 #include "layer\UFO.h"
 
-const float INTERNAL = 3.0f/*10.0f*/;
-const float PROBABILITY_DOUBEL_BULLET = 0.0f/*0.8f*/;
-const float PROBABILITY_BOOM = 1.0f/*0.2f*/;
+const float INTERNAL = /*3.0f*/10.0f;
+const float PROBABILITY_DOUBEL_BULLET = /*0.0f*/0.8f;
+const float PROBABILITY_BOOM = /*1.0f*/0.2f;
 
 LayerUFO::LayerUFO(void)
 {
