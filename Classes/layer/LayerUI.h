@@ -19,13 +19,20 @@ public:
 
 	void countBoomAdd();
 	void updateBoomCount();
+	void updateScore(int score);
 	
 private:
 	//使用炸弹的回调函数
 	void menuCallBackBoom();
+	//暂停按钮的回调函数
+	void menuCallbackPause();
 
 private:
-	int _countBoom;
+	Label *_labelScore;
+	MenuItemSprite *_menuItemSpritePause;
+
 	int _score;
+	int _countBoom;
+
 };
 

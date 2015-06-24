@@ -1,5 +1,6 @@
-#include "layer\Enemy.h"
-#include "util\UtilRandom.h"
+#include "layer/Enemy.h"
+#include "util/UtilRandom.h"
+#include "layer/ManagetLayer.h"
 
 using namespace std;
 
@@ -116,6 +117,8 @@ const int Enemy::scoreGet()
 
 void Enemy::blowup()
 {
+	ManagetLayer::getInstance()->layerUIGet()->updateScore(_score);//Ìí¼Ó·ÖÊý
+	//
 	auto animation = Animation::create();
 	switch (_type)
 	{

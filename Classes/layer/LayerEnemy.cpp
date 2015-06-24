@@ -44,9 +44,9 @@ TypeEnemy LayerEnemy::typeEnemyGet()
 	values.push_back(TypeEnemy::MEDIUM);
 	values.push_back(TypeEnemy::LARGE);
 	vector<float> probabilityDistribution;
-	probabilityDistribution.push_back(0.5f);
-	probabilityDistribution.push_back(0.35f);
-	probabilityDistribution.push_back(0.15f);
+	probabilityDistribution.push_back(0.618f);
+	probabilityDistribution.push_back(0.236f);
+	probabilityDistribution.push_back(0.146f);
 	auto randomPitchUpon = UtilRandom::randomPitchUpon(probabilityDistribution);
 	return values[randomPitchUpon];
 }
