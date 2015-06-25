@@ -1,6 +1,5 @@
-#include "layer/LayerUI.h"
-#include "layer/LayerGame.h"
-#include "layer/ManagetLayer.h"
+#include "LayerUI.h"
+#include "ManagetLayer.h"
 
 using namespace std;
 

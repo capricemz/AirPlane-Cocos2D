@@ -1,6 +1,6 @@
-#include "layer\Enemy.h"
-#include "layer\LayerEnemy.h"
 #include "util\UtilRandom.h"
+#include "LayerEnemy.h"
+#include "Enemy.h"
 
 LayerEnemy::LayerEnemy(void)
 {

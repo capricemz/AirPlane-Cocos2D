@@ -1,6 +1,6 @@
-#include "layer/Enemy.h"
 #include "util/UtilRandom.h"
-#include "layer/ManagetLayer.h"
+#include "Enemy.h"
+#include "ManagetLayer.h"
 
 using namespace std;
 

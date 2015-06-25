@@ -136,43 +136,44 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\layer\Enemy.cpp" />
-    <ClCompile Include="..\Classes\layer\LayerBullet.cpp" />
-    <ClCompile Include="..\Classes\layer\LayerEnemy.cpp" />
-    <ClCompile Include="..\Classes\layer\LayerGame.cpp" />
-    <ClCompile Include="..\Classes\layer\LayerPlane.cpp" />
-    <ClCompile Include="..\Classes\layer\LayerUFO.cpp" />
-    <ClCompile Include="..\Classes\layer\LayerUI.cpp" />
-    <ClCompile Include="..\Classes\layer\ManagetLayer.cpp" />
-    <ClCompile Include="..\Classes\layer\UFO.cpp" />
-    <ClCompile Include="..\Classes\SceneGame.cpp" />
+    <ClCompile Include="..\Classes\core\layer\Enemy.cpp" />
+    <ClCompile Include="..\Classes\core\layer\LayerBullet.cpp" />
+    <ClCompile Include="..\Classes\core\layer\LayerEnemy.cpp" />
+    <ClCompile Include="..\Classes\core\layer\LayerGame.cpp" />
+    <ClCompile Include="..\Classes\core\layer\LayerPlane.cpp" />
+    <ClCompile Include="..\Classes\core\layer\LayerUFO.cpp" />
+    <ClCompile Include="..\Classes\core\layer\LayerUI.cpp" />
+    <ClCompile Include="..\Classes\core\layer\ManagetLayer.cpp" />
+    <ClCompile Include="..\Classes\core\layer\UFO.cpp" />
+    <ClCompile Include="..\Classes\core\SceneGame.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp" />
     <ClCompile Include="..\Classes\util\UtilRandom.cpp" />
+    <ClCompile Include="..\Classes\welcome\LayerWelcome.cpp" />
+    <ClCompile Include="..\Classes\welcome\SceneWelcome.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\layer\Enemy.h" />
-    <ClInclude Include="..\Classes\layer\LayerBullet.h" />
-    <ClInclude Include="..\Classes\layer\LayerEnemy.h" />
-    <ClInclude Include="..\Classes\layer\LayerGame.h" />
-    <ClInclude Include="..\Classes\layer\LayerPlane.h" />
-    <ClInclude Include="..\Classes\layer\LayerUFO.h" />
-    <ClInclude Include="..\Classes\layer\LayerUI.h" />
-    <ClInclude Include="..\Classes\layer\ManagetLayer.h" />
-    <ClInclude Include="..\Classes\layer\UFO.h" />
-    <ClInclude Include="..\Classes\SceneGame.h" />
+    <ClInclude Include="..\Classes\core\layer\Enemy.h" />
+    <ClInclude Include="..\Classes\core\layer\LayerBullet.h" />
+    <ClInclude Include="..\Classes\core\layer\LayerEnemy.h" />
+    <ClInclude Include="..\Classes\core\layer\LayerGame.h" />
+    <ClInclude Include="..\Classes\core\layer\LayerPlane.h" />
+    <ClInclude Include="..\Classes\core\layer\LayerUFO.h" />
+    <ClInclude Include="..\Classes\core\layer\LayerUI.h" />
+    <ClInclude Include="..\Classes\core\layer\ManagetLayer.h" />
+    <ClInclude Include="..\Classes\core\layer\UFO.h" />
+    <ClInclude Include="..\Classes\core\SceneGame.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h" />
     <ClInclude Include="..\Classes\util\UtilRandom.h" />
+    <ClInclude Include="..\Classes\welcome\LayerWelcome.h" />
+    <ClInclude Include="..\Classes\welcome\SceneWelcome.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

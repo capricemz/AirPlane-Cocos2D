@@ -1,7 +1,7 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "layer/UFO.h"
+#include "UFO.h"
 
 USING_NS_CC;
 

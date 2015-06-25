@@ -16,7 +16,16 @@
     <Filter Include="src\tests">
       <UniqueIdentifier>{380adbbc-7f22-4311-967b-5f9310186e43}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\layer">
+    <Filter Include="src\welcome">
+      <UniqueIdentifier>{0061b436-b987-4c87-a95d-8c948d8d0956}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{08973942-c6c5-4f32-9432-21d078373b5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\over">
+      <UniqueIdentifier>{803561a9-68ba-496d-93da-f324ae72d0de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core\layer">
       <UniqueIdentifier>{ada5245a-68d5-45a0-bd51-2c49aa76a61c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -30,41 +39,47 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SceneGame.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\util\UtilRandom.cpp">
       <Filter>src\uitl</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp">
       <Filter>src\tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\layer\Enemy.cpp">
-      <Filter>src\layer</Filter>
+    <ClCompile Include="..\Classes\welcome\SceneWelcome.cpp">
+      <Filter>src\welcome</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\layer\LayerBullet.cpp">
-      <Filter>src\layer</Filter>
+    <ClCompile Include="..\Classes\welcome\LayerWelcome.cpp">
+      <Filter>src\welcome</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\layer\LayerEnemy.cpp">
-      <Filter>src\layer</Filter>
+    <ClCompile Include="..\Classes\core\layer\Enemy.cpp">
+      <Filter>src\core\layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\layer\LayerGame.cpp">
-      <Filter>src\layer</Filter>
+    <ClCompile Include="..\Classes\core\layer\LayerBullet.cpp">
+      <Filter>src\core\layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\layer\LayerPlane.cpp">
-      <Filter>src\layer</Filter>
+    <ClCompile Include="..\Classes\core\layer\LayerEnemy.cpp">
+      <Filter>src\core\layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\layer\LayerUFO.cpp">
-      <Filter>src\layer</Filter>
+    <ClCompile Include="..\Classes\core\layer\LayerGame.cpp">
+      <Filter>src\core\layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\layer\UFO.cpp">
-      <Filter>src\layer</Filter>
+    <ClCompile Include="..\Classes\core\layer\LayerPlane.cpp">
+      <Filter>src\core\layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\layer\LayerUI.cpp">
-      <Filter>src\layer</Filter>
+    <ClCompile Include="..\Classes\core\layer\LayerUFO.cpp">
+      <Filter>src\core\layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\layer\ManagetLayer.cpp">
-      <Filter>src\layer</Filter>
+    <ClCompile Include="..\Classes\core\layer\LayerUI.cpp">
+      <Filter>src\core\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\layer\ManagetLayer.cpp">
+      <Filter>src\core\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\layer\UFO.cpp">
+      <Filter>src\core\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\SceneGame.cpp">
+      <Filter>src\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,49 +92,52 @@
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\SceneGame.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\util\UtilRandom.h">
       <Filter>src\uitl</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h">
       <Filter>src\tests</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\layer\Enemy.h">
-      <Filter>src\layer</Filter>
+    <ClInclude Include="..\Classes\welcome\SceneWelcome.h">
+      <Filter>src\welcome</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\layer\LayerBullet.h">
-      <Filter>src\layer</Filter>
+    <ClInclude Include="..\Classes\welcome\LayerWelcome.h">
+      <Filter>src\welcome</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\layer\LayerEnemy.h">
-      <Filter>src\layer</Filter>
+    <ClInclude Include="..\Classes\core\layer\Enemy.h">
+      <Filter>src\core\layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\layer\LayerGame.h">
-      <Filter>src\layer</Filter>
+    <ClInclude Include="..\Classes\core\layer\LayerBullet.h">
+      <Filter>src\core\layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\layer\LayerPlane.h">
-      <Filter>src\layer</Filter>
+    <ClInclude Include="..\Classes\core\layer\LayerEnemy.h">
+      <Filter>src\core\layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\layer\LayerUFO.h">
-      <Filter>src\layer</Filter>
+    <ClInclude Include="..\Classes\core\layer\LayerGame.h">
+      <Filter>src\core\layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\layer\UFO.h">
-      <Filter>src\layer</Filter>
+    <ClInclude Include="..\Classes\core\layer\LayerPlane.h">
+      <Filter>src\core\layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\layer\LayerUI.h">
-      <Filter>src\layer</Filter>
+    <ClInclude Include="..\Classes\core\layer\LayerUFO.h">
+      <Filter>src\core\layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\layer\ManagetLayer.h">
-      <Filter>src\layer</Filter>
+    <ClInclude Include="..\Classes\core\layer\LayerUI.h">
+      <Filter>src\core\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\layer\ManagetLayer.h">
+      <Filter>src\core\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\layer\UFO.h">
+      <Filter>src\core\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\SceneGame.h">
+      <Filter>src\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

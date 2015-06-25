@@ -1,13 +1,12 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "SceneGame.h"
-#include "layer/LayerGame.h"
-#include "layer/LayerPlane.h"
-#include "layer/LayerBullet.h"
-#include "layer/LayerEnemy.h"
-#include "layer/LayerUFO.h"
-#include "layer/LayerUI.h"
+#include "..\SceneGame.h"
+#include "LayerPlane.h"
+#include "LayerEnemy.h"
+#include "LayerUFO.h"
+#include "LayerUI.h"
+#include "LayerBullet.h"
 
 USING_NS_CC;
 

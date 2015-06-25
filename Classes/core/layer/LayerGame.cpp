@@ -1,7 +1,9 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "layer/LayerGame.h"
-#include "layer/ManagetLayer.h"
+#include "LayerGame.h"
+#include "Enemy.h"
+#include "UFO.h"
+#include "ManagetLayer.h"
 
 USING_NS_CC;
 
@@ -22,10 +24,6 @@ bool LayerGame::init()
 		CC_BREAK_IF(!Layer::init());
 
 		eventAdd();
-
-		//png加入全局cache中
-		SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ui/shoot_background.plist");
-		SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ui/shoot.plist");
 
 		//加载background1，background1和background2是CCSprite*型成员变量
 		_background1 = Sprite::createWithSpriteFrameName("background.png");

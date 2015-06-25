@@ -1,4 +1,5 @@
-#include "layer/LayerPlane.h"
+#include "cocos2d.h"
+#include "LayerPlane.h"
 
 USING_NS_CC;
 

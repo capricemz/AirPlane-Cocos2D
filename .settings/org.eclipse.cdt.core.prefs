@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/COCOS2D/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/COCOS2D/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/COCOS2D/value=D\:\\Program Files\\cocos2d-x-3.6\\cocos
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/CPLUS_INCLUDE_PATH/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/CPLUS_INCLUDE_PATH/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/CPLUS_INCLUDE_PATH/value=${MINGW_HOME}\\include;${MINGW_HOME}\\lib\\gcc\\mingw32\\4.8.1\\include\\c++;${MINGW_HOME}\\lib\\gcc\\mingw32\\4.8.1\\include\\c++\\backward;${MINGW_HOME}\\lib\\gcc\\mingw32\\4.8.1\\include\\c++\\mingw32
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/C_INCLUDE_PATH/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/C_INCLUDE_PATH/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/C_INCLUDE_PATH/value=${MINGW_HOME}\\include;${MINGW_HOME}\\lib\\gcc\\mingw32\\4.8.1\\include
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/LIBRARY_PATH/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/LIBRARY_PATH/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/LIBRARY_PATH/value=${MINGW_HOME}\\lib;${MINGW_HOME}\\lib\\gcc\\mingw32\\4.8.1
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/append=true
+environment/project/cdt.managedbuild.toolchain.gnu.mingw.base.1421845555/appendContributed=true

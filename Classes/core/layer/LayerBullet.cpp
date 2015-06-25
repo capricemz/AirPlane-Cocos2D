@@ -1,6 +1,5 @@
-#include "layer/ManagetLayer.h"
-#include "layer/LayerBullet.h"
-#include "layer/LayerGame.h"
+#include "LayerBullet.h"
+#include "ManagetLayer.h"
 
 LayerBullet::LayerBullet(void)
 {
