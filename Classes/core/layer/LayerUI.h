@@ -20,6 +20,8 @@ public:
 	void countBoomAdd();
 	void updateBoomCount();
 	void updateScore(int score);
+
+	int scoreGet();
 	
 private:
 	//使用炸弹的回调函数

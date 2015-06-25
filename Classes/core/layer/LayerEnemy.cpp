@@ -75,3 +75,8 @@ void LayerEnemy::enemyBlowupAll()
 		}
 	}
 }
+
+void LayerEnemy::addStop()
+{
+	unschedule(schedule_selector(LayerEnemy::enemyAdd));
+}

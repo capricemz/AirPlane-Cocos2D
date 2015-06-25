@@ -27,14 +27,16 @@ bool LayerGame::init()
 
 		//加载background1，background1和background2是CCSprite*型成员变量
 		_background1 = Sprite::createWithSpriteFrameName("background.png");
-		_background1->setAnchorPoint(Vec2(0,0));
-		_background1->setPosition(Vec2(0,0));
+		_background1->setAnchorPoint(Point::ZERO);
+		_background1->setPosition(Point::ZERO);
+		_background1->getTexture()->setAliasTexParameters();
 		addChild(_background1);
 
 		//加载background2
 		_background2 = Sprite::createWithSpriteFrameName("background.png");
-		_background2->setAnchorPoint(Vec2(0,0));
-		_background2->setPosition(Vec2(0,_background2->getContentSize().height - 2));//这里减2的目的是为了防止图片交界的黑线
+		_background2->setAnchorPoint(Point::ZERO);
+		_background2->setPosition(Point(0,_background2->getContentSize().height - 2));//这里减2的目的是为了防止图片交界的黑线
+		_background2->getTexture()->setAliasTexParameters();
 		addChild(_background2);
 
 		schedule(schedule_selector(LayerGame::backgroundMove),0.01f);
@@ -60,6 +62,7 @@ void LayerGame::update( float delta )
 {
 	updateCollisionBulletEnemy();
 	updateCollisionUFOPlane();
+	updateCollisionEnemyPlane();
 }
 
 void LayerGame::updateCollisionBulletEnemy()
@@ -109,13 +112,18 @@ void LayerGame::updateCollisionBulletEnemy()
 
 void LayerGame::updateCollisionUFOPlane()
 {
+	auto layerPlane = ManagetLayer::getInstance()->layerPlaneGet();
+	if (!layerPlane->isAlive)
+	{
+		return;
+	}
 	Vector<UFO *> vecUFO2Del;//创建一个Vector<UFO *>，用以存放待删除的UFO，也就是此帧中被检测到碰撞的UFO
 	UFO *ufo;
 	auto vecUFO = ManagetLayer::getInstance()->layerUFOGet()->vecUFOGet();
 	for each (ufo in vecUFO)
 	{
 		auto rectUFO = ufo->getBoundingBox();
-		auto rectPlane = ManagetLayer::getInstance()->layerPlaneGet()->getChildByTag(AIRPLANE)->getBoundingBox();
+		auto rectPlane = layerPlane->getChildByTag(AIRPLANE)->getBoundingBox();
 		auto isIntersects = rectUFO.intersectsRect(rectPlane);
 		if (isIntersects)
 		{
@@ -135,6 +143,34 @@ void LayerGame::updateCollisionUFOPlane()
 		ufo->pickUp();
 	}
 	vecUFO2Del.clear();
+}
+
+void LayerGame::updateCollisionEnemyPlane()
+{
+	auto layerPlane = ManagetLayer::getInstance()->layerPlaneGet();
+	if (!layerPlane->isAlive)
+	{
+		return;
+	}
+	Enemy *enemy;
+	auto vecEnemy = ManagetLayer::getInstance()->layerEnemyGet()->vecEnemyGet();
+	for each (enemy in vecEnemy)//遍历所有敌机
+	{
+		if (enemy->hpGet() > 0)
+		{
+			auto rectEnemy = enemy->getBoundingBox();
+			auto rectPlane = layerPlane->getChildByTag(AIRPLANE)->getBoundingBox();
+			auto isIntersects = rectEnemy.intersectsRect(rectPlane);
+			if (isIntersects)
+			{
+				unscheduleAllCallbacks();
+				ManagetLayer::getInstance()->layerUFOGet()->addStop();
+				ManagetLayer::getInstance()->layerEnemyGet()->addStop();
+				ManagetLayer::getInstance()->layerBulletGet()->addStop();
+				ManagetLayer::getInstance()->layerPlaneGet()->blowUp();
+			}
+		}
+	}
 }
 
 void LayerGame::eventAdd()

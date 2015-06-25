@@ -81,6 +81,12 @@
     <ClCompile Include="..\Classes\core\SceneGame.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\over\SceneGameOver.cpp">
+      <Filter>src\over</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\over\LayerGameOver.cpp">
+      <Filter>src\over</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -133,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\core\SceneGame.h">
       <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\over\SceneGameOver.h">
+      <Filter>src\over</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\over\LayerGameOver.h">
+      <Filter>src\over</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

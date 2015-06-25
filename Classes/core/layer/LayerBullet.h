@@ -16,14 +16,15 @@ public:
 
 	Vector<Sprite *> vecBulletGet();
 	
-	void bulletAdd(float delta);
 	void bulletRemove(Node *bullet);
 
-	void shootStart();
-	void shootStop();
 	void useBulletDouble();
 
+	void addStop();
+
 private:
+	void bulletAdd(float delta);
+
 	void createBulletSingle();
 	void createBulletDouble();
 

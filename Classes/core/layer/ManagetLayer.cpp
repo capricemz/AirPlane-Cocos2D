@@ -5,11 +5,7 @@ ManagetLayer::CGarbo ManagetLayer::_garbo;//内嵌类静态成员变量的定义
 
 ManagetLayer::ManagetLayer(void)
 {
-	_layerBullet = nullptr;
-	_layerEnemy = nullptr;
-	_layerPlane = nullptr;
-	_layerUFO = nullptr;
-	_layerUI = nullptr;
+	destoryLayer();
 }
 
 
@@ -17,7 +13,7 @@ ManagetLayer::~ManagetLayer(void)
 {
 }
 
-void ManagetLayer::initLayer( SceneGame *scene )
+void ManagetLayer::createLayer( SceneGame *scene )
 {
 	_layerGame = LayerGame::create();
 	scene->addChild(_layerGame);
@@ -29,7 +25,6 @@ void ManagetLayer::initLayer( SceneGame *scene )
 	//加入layerBullet
 	_layerBullet = LayerBullet::create();
 	_layerGame->addChild(_layerBullet);
-	_layerBullet->shootStart();
 
 	//加入layerEnemy
 	_layerEnemy = LayerEnemy::create();
@@ -72,4 +67,14 @@ LayerUFO * ManagetLayer::layerUFOGet()
 LayerUI * ManagetLayer::layerUIGet()
 {
 	return _layerUI;
+}
+
+void ManagetLayer::destoryLayer()
+{
+	_layerGame = nullptr;
+	_layerPlane = nullptr;
+	_layerBullet = nullptr;
+	_layerEnemy = nullptr;
+	_layerUFO = nullptr;
+	_layerUI = nullptr;
 }

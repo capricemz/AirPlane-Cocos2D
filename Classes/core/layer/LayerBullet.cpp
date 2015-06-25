@@ -16,6 +16,8 @@ bool LayerBullet::init()
 	{
 		CC_BREAK_IF(!Layer::init());
 
+		schedule(schedule_selector(LayerBullet::bulletAdd),0.2f,kRepeatForever,0.0f);
+
 		isInit = true;
 	} while (0);
 	return isInit;
@@ -104,12 +106,7 @@ void LayerBullet::bulletRemove(Node *bullet)
 	}
 }
 
-void LayerBullet::shootStart()
-{
-	schedule(schedule_selector(LayerBullet::bulletAdd),0.2f,kRepeatForever,0.0f);
-}
-
-void LayerBullet::shootStop()
+void LayerBullet::addStop()
 {
 	unschedule(schedule_selector(LayerBullet::bulletAdd));
 }

@@ -18,6 +18,11 @@ public:
 
 	void moveTo(Point location);
 
+	void blowUp();
+
+private:
+	void remove4Par();
+
 public:
 	bool isAlive;
 

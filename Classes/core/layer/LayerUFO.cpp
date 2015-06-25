@@ -71,3 +71,8 @@ void LayerUFO::ufoRemove4Vec( Node *ufo )
 		}
 	}
 }
+
+void LayerUFO::addStop()
+{
+	unschedule(schedule_selector(LayerUFO::ufoAdd));
+}

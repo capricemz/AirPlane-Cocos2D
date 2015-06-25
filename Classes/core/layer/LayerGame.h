@@ -26,6 +26,7 @@ private:
 
 	void updateCollisionBulletEnemy();
 	void updateCollisionUFOPlane();
+	void updateCollisionEnemyPlane();
 
 private:
 	EventListenerTouchOneByOne *_eventListener;

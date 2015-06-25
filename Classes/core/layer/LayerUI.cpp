@@ -125,3 +125,8 @@ void LayerUI::menuCallBackBoom()
 		ManagetLayer::getInstance()->layerEnemyGet()->enemyBlowupAll();
 	}
 }
+
+int LayerUI::scoreGet()
+{
+	return _score;
+}

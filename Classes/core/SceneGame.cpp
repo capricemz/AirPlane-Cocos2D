@@ -7,6 +7,7 @@ SceneGame::SceneGame(void)
 
 SceneGame::~SceneGame(void)
 {
+	ManagetLayer::getInstance()->destoryLayer();
 }
 
 bool SceneGame::init()
@@ -15,7 +16,7 @@ bool SceneGame::init()
 	do
 	{
 		CC_BREAK_IF(!Scene::init());
-		ManagetLayer::getInstance()->initLayer(this);
+		ManagetLayer::getInstance()->createLayer(this);
 
 		isInit = true;
 	} while (0);

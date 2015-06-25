@@ -1,5 +1,7 @@
 #include "cocos2d.h"
 #include "LayerPlane.h"
+#include "over\SceneGameOver.h"
+#include "ManagetLayer.h"
 
 USING_NS_CC;
 
@@ -72,4 +74,36 @@ void LayerPlane::moveTo( Point location )
 		}
 		plane->setPosition(location);
 	}
+}
+
+void LayerPlane::blowUp()
+{
+	if (isAlive)
+	{
+		isAlive = false;
+
+		auto animation = Animation::create();
+		animation->setDelayPerUnit(0.2f);
+		animation->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("hero_blowup_n1.png"));
+		animation->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("hero_blowup_n2.png"));
+		animation->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("hero_blowup_n3.png"));
+		animation->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("hero_blowup_n4.png"));
+
+		auto actionAnimate = Animate::create(animation);
+		auto actionRemove4Par = CallFuncN::create(CC_CALLBACK_0(LayerPlane::remove4Par, this));
+		auto sequence = Sequence::create(actionAnimate, actionRemove4Par, nullptr);
+		auto plane = getChildByTag(AIRPLANE);
+		plane->stopAllActions();
+		plane->runAction(sequence);
+	}
+}
+
+void LayerPlane::remove4Par()
+{
+	removeChildByTag(AIRPLANE, true);
+	auto scene = SceneGameOver::create();
+	auto scoreOver = ManagetLayer::getInstance()->layerUIGet()->scoreGet();
+	scene->scoreOverSet(scoreOver);
+	auto animateScene = TransitionMoveInT::create(0.8f, scene);
+	Director::getInstance()->replaceScene(animateScene);
 }

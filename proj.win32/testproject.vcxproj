@@ -147,6 +147,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\core\layer\UFO.cpp" />
     <ClCompile Include="..\Classes\core\SceneGame.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\over\LayerGameOver.cpp" />
+    <ClCompile Include="..\Classes\over\SceneGameOver.cpp" />
     <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp" />
     <ClCompile Include="..\Classes\util\UtilRandom.cpp" />
     <ClCompile Include="..\Classes\welcome\LayerWelcome.cpp" />
@@ -166,6 +168,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\core\layer\UFO.h" />
     <ClInclude Include="..\Classes\core\SceneGame.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\over\LayerGameOver.h" />
+    <ClInclude Include="..\Classes\over\SceneGameOver.h" />
     <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h" />
     <ClInclude Include="..\Classes\util\UtilRandom.h" />
     <ClInclude Include="..\Classes\welcome\LayerWelcome.h" />

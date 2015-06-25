@@ -5,13 +5,6 @@
 
 USING_NS_CC;
 
-/*
-struct StructEnemy
-{
-	int id;
-	int hp;
-};*/
-
 class LayerEnemy : public Layer
 {
 public:
@@ -24,13 +17,17 @@ public:
 
 	Vector<Enemy *> vecEnemyGet();
 
-	void enemyAdd(float delte);
-	void enemyRemove4Vec(Node *enemy);
 	void enemyBlowupAll();
+
+	void addStop();
 
 private:
 	TypeEnemy typeEnemyGet();
+	void enemyAdd(float delte);
+	void enemyRemove4Vec(Node *enemy);
+
 private:
 	Vector<Enemy *> _vecEmemy;
+
 };
 

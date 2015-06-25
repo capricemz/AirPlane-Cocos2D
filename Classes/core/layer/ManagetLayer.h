@@ -44,7 +44,7 @@ private:
 public:
 	~ManagetLayer(void);
 
-	void initLayer(SceneGame *scene);
+	void createLayer(SceneGame *scene);
 
 	LayerGame * layerGameGet();
 	LayerPlane * layerPlaneGet();
@@ -52,7 +52,9 @@ public:
 	LayerEnemy * layerEnemyGet();
 	LayerUFO * layerUFOGet();
 	LayerUI * layerUIGet();
-	
+
+	void destoryLayer();
+
 private:
 	LayerGame *_layerGame;
 	LayerPlane *_layerPlane;

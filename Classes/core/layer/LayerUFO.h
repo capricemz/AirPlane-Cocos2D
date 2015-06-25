@@ -16,11 +16,12 @@ public:
 
 	Vector<UFO *> vecUFOGet();
 
-	void ufoAdd(float delte);
-	void ufoRemove4Vec(Node *ufo);
+	void addStop();
 
 private:
 	TypeUFO typeUFOGet();
+	void ufoAdd(float delte);
+	void ufoRemove4Vec(Node *ufo);
 
 private:
 	float _timeNow;
