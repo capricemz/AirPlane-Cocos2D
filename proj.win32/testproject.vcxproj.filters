@@ -10,9 +10,6 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\uitl">
-      <UniqueIdentifier>{4cf31592-30a9-40aa-ab1a-3d8541257d24}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\tests">
       <UniqueIdentifier>{380adbbc-7f22-4311-967b-5f9310186e43}</UniqueIdentifier>
     </Filter>
@@ -28,6 +25,9 @@
     <Filter Include="src\core\layer">
       <UniqueIdentifier>{ada5245a-68d5-45a0-bd51-2c49aa76a61c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{4cf31592-30a9-40aa-ab1a-3d8541257d24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -40,7 +40,7 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\util\UtilRandom.cpp">
-      <Filter>src\uitl</Filter>
+      <Filter>src\util</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp">
       <Filter>src\tests</Filter>
@@ -87,6 +87,12 @@
     <ClCompile Include="..\Classes\over\LayerGameOver.cpp">
       <Filter>src\over</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\tests\TestFileUtils.cpp">
+      <Filter>src\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\UtilString.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -99,7 +105,7 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\util\UtilRandom.h">
-      <Filter>src\uitl</Filter>
+      <Filter>src\util</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h">
       <Filter>src\tests</Filter>
@@ -145,6 +151,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\over\LayerGameOver.h">
       <Filter>src\over</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tests\TestFileUtils.h">
+      <Filter>src\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\UtilString.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

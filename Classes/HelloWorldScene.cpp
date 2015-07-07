@@ -1,6 +1,7 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "tests/TestFileUtils.h"
 
 USING_NS_CC;
 
@@ -71,6 +72,8 @@ bool HelloWorld::init()
 	auto blink = Blink::create(10, 10);
 	auto action = Sequence::create(moveTo, flipxAction, blink, NULL);*/
 	/*sprite->runAction(action);*/
+
+	auto dic = TestFileUtils::cfgMonsterGet();
 
     return true;
 }
