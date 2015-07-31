@@ -1,7 +1,7 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
 #include "tests/TestFileUtils.h"
+#include "tests/TestLoadingBar.h"
 
 USING_NS_CC;
 
@@ -35,8 +35,12 @@ bool HelloWorld::init()
     auto rootNode = CSLoader::createNode("MainScene.csb");
 
     addChild(rootNode);
+	auto btn = Button::create(TEST_BTN_0, TEST_BTN_1);
+	btn->setPosition(Vec2(btn->getContentSize().width / 2, btn->getContentSize().height));
+	btn->addTouchEventListener(CC_CALLBACK_2(HelloWorld::touchHandle,this));
+	addChild(btn);
 
-	auto layer = LayerColor::create(Color4B(0, 128, 128, 255));
+	/*auto layer = LayerColor::create(Color4B(0, 128, 128, 255));
 	layer->setContentSize(Size(120, 80));
 	layer->setPosition(Point(50, 50));
 	addChild(layer, 10);
@@ -47,12 +51,13 @@ bool HelloWorld::init()
 	auto layer2 = LayerColor::create(Color4B(128, 128, 0, 255));
 	layer2->setContentSize(Size(120, 80));
 	layer2->setPosition(Point(150, 110));
-	addChild(layer2, 30);
+	addChild(layer2, 30);*/
 
 	//scheduleUpdate();
 	//schedule(schedule_selector(updateCustom), 1.0f, kRepeatForever, 0);
 	//scheduleOnce(schedule_selector(updateOnce), 0.1f);
-	auto visibleSize = Director::getInstance()->getVisibleSize();
+
+	/*auto visibleSize = Director::getInstance()->getVisibleSize();
     auto origin = Director::getInstance()->getVisibleOrigin();
 	auto red = LayerColor::create(Color4B(255, 100, 100, 128), visibleSize.width/2, visibleSize.height/2);
 	auto green = LayerColor::create(Color4B(100, 255, 100, 128), visibleSize.width/4, visibleSize.height/4);
@@ -62,7 +67,7 @@ bool HelloWorld::init()
 	auto sprite = Sprite::create();
 	sprite->setColor(Color3B(100, 100, 255));
 	sprite->setContentSize(Size(50, 50));
-	red->addChild(sprite);
+	red->addChild(sprite);*/
 
 	/*auto placeAction = Place::create(Vec2(10,10));
 
@@ -73,7 +78,7 @@ bool HelloWorld::init()
 	auto action = Sequence::create(moveTo, flipxAction, blink, NULL);*/
 	/*sprite->runAction(action);*/
 
-	auto dic = TestFileUtils::cfgMonsterGet();
+	/*auto dic = TestFileUtils::cfgMonsterGet();*/
 
     return true;
 }
@@ -91,4 +96,12 @@ void HelloWorld::updateCustom(float dt)
 void HelloWorld::updateOnce(float dt)
 {
 	log("once");
+}
+
+void HelloWorld::touchHandle(Ref *ref, Widget::TouchEventType type)
+{
+	if (type == Widget::TouchEventType::BEGAN)
+	{
+		TestLoadingBar::doTest(this);
+	}
 }

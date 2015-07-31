@@ -42,6 +42,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     FileUtils::getInstance()->addSearchPath("res");
 
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("PlistBattleUI.plist");
+
     // create a scene. it's an autorelease object
     auto scene = HelloWorld::createScene();
 	/*auto scene = SceneWelcome::create();*/

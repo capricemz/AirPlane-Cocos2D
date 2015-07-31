@@ -93,6 +93,9 @@
     <ClCompile Include="..\Classes\util\UtilString.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\tests\TestLoadingBar.cpp">
+      <Filter>src\tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -157,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\UtilString.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tests\TestLoadingBar.h">
+      <Filter>src\tests</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
