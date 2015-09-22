@@ -149,6 +149,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\over\LayerGameOver.cpp" />
     <ClCompile Include="..\Classes\over\SceneGameOver.cpp" />
+    <ClCompile Include="..\Classes\tests\TestEventTouch.cpp" />
     <ClCompile Include="..\Classes\tests\TestFileUtils.cpp" />
     <ClCompile Include="..\Classes\tests\TestLoadingBar.cpp" />
     <ClCompile Include="..\Classes\tests\TestSpriteBtachNode.cpp" />
@@ -173,6 +174,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\over\LayerGameOver.h" />
     <ClInclude Include="..\Classes\over\SceneGameOver.h" />
+    <ClInclude Include="..\Classes\tests\TestEventTouch.h" />
     <ClInclude Include="..\Classes\tests\TestFileUtils.h" />
     <ClInclude Include="..\Classes\tests\TestLoadingBar.h" />
     <ClInclude Include="..\Classes\tests\TestSpriteBtachNode.h" />

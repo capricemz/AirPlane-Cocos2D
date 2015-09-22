@@ -32,7 +32,7 @@ public:
 	
 private:
 	void touchHandle(Ref *ref, Widget::TouchEventType type);
-
+	virtual bool onTouchBegan(Touch *touch, Event *event);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
